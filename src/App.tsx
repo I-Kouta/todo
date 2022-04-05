@@ -1,6 +1,10 @@
 // ReactからuseStateフックを保持
 import { useState } from 'react';
 
+type Todo = {
+  value: string;
+};
+
 export const App = () => {
   /**
    * text = ステートの値
@@ -8,6 +12,9 @@ export const App = () => {
    * useState の引数 = ステートの初期値 (=空の文字列)
    */
   const [text, setText] = useState('');
+  
+  const [todos, setTodos] = useState<Todo[]>([]);
+  // useState<>とすると型が異なるステートが代入できない
 
   return (
     <div>
