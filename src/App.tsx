@@ -1,3 +1,4 @@
+// サーバー起動はpnm run dev
 // ReactからuseStateフックを保持
 import { useState } from 'react';
 
