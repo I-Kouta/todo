@@ -7,16 +7,14 @@ type Todo = {
 };
 
 export const App = () => {
-  /**
-   * text = ステートの値
-   * setText = ステートの値を更新するメソッド
-   * useState の引数 = ステートの初期値 (=空の文字列)
-   */
   const [text, setText] = useState('');
   
   // useState<>とすると型が異なるステートが代入できない
   const [todos, setTodos] = useState<Todo[]>([]);
   
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
   // todosステートを更新する関数
   const handleOnSubmit = () => {
     //何も入力されていなければリターン
@@ -39,7 +37,7 @@ export const App = () => {
           e.preventDefault();
           handleOnSubmit();
         }}>
-          <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+          <input type="text" value={text} onChange={(e) => handleOnChange(e)} />
           <input type="submit" value="追加" onSubmit={handleOnSubmit} />
       </form>
     </div>
