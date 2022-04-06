@@ -14,8 +14,22 @@ export const App = () => {
    */
   const [text, setText] = useState('');
   
-  const [todos, setTodos] = useState<Todo[]>([]);
   // useState<>とすると型が異なるステートが代入できない
+  const [todos, setTodos] = useState<Todo[]>([]);
+  
+  // todosステートを更新する関数
+  const handleOnSubmit = () => {
+    //何も入力されていなければリターン
+    if (!text) return;
+    // 新しいTodoの作成
+    const newTodo: Todo = {
+      value: text,
+    };
+
+    setTodos([newTodo, ...todos]);
+    //フォームの入力をクリア
+    setText('');
+  };
 
   return (
     <div>
