@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 type Todo = {
   value: string;
+  readonly id: number;
 };
 
 export const App = () => {
