@@ -17,12 +17,16 @@ export const App = () => {
     setText(e.target.value);
   };
   // todosステートを更新する関数
-  const handleOnSubmit = () => {
+  const handleOnSubmit = (
+    e: React.FormEvent<HTMLFormElement | HTMLInputElement>
+  ) => {
+    e.preventDefault();
     //何も入力されていなければリターン
     if (!text) return;
     // 新しいTodoの作成
     const newTodo: Todo = {
       value: text,
+      id: new Date().getTime(),
     };
 
     setTodos([newTodo, ...todos]);
@@ -38,7 +42,7 @@ export const App = () => {
       </form>
       <ul>
         {todos.map((todo) => {
-          return <li>{todo.value}</li>;
+          return <li key={todo.id}>{todo.value}</li>;
         })}
       </ul>
     </div>
