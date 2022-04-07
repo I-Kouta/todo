@@ -42,7 +42,15 @@ export const App = () => {
       </form>
       <ul>
         {todos.map((todo) => {
-          return <li key={todo.id}>{todo.value}</li>;
+          return (
+            <li key={todo.id}>
+              <input
+                type="text"
+                value={todo.value}
+                onChange={(e) => e.preventDefault()}
+              />
+            </li>
+          );
         })}
       </ul>
     </div>
