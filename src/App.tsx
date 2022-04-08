@@ -62,6 +62,11 @@ export const App = () => {
           return (
             <li key={todo.id}>
               <input
+                type="checkbox"
+                checked={todo.checked}
+                onChange={(e) => e.preventDefault()}
+              />
+              <input
                 type="text"
                 value={todo.value}
                 onChange={(e) => handleOnEdit(todo.id, e.target.value)}
