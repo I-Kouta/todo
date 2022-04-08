@@ -5,6 +5,8 @@ import { useState } from 'react';
 type Todo = {
   value: string;
   readonly id: number;
+  // 完了・未完了を示す記述
+  cheched: boolean;
 };
 
 export const App = () => {
