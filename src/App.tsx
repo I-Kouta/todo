@@ -7,6 +7,7 @@ type Todo = {
   readonly id: number;
   // 完了・未完了を示す記述
   checked: boolean;
+  removed: boolean;
 };
 
 export const App = () => {
@@ -26,6 +27,7 @@ export const App = () => {
       value: text,
       id: new Date().getTime(),
       checked: false,
+      removed: false,
     };
 
     setTodos([newTodo, ...todos]);
