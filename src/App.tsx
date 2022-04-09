@@ -60,7 +60,7 @@ export const App = () => {
 
     setTodos(newTodos);
   };
-  
+
   const handleOnRemove = (id: number, removed: boolean) => {
     const deepCopy = todos.map((todo) => ({ ...todo }));
 
@@ -91,12 +91,13 @@ export const App = () => {
             <li key={todo.id}>
               <input
                 type="checkbox"
+                disabled={todo.removed}
                 checked={todo.checked}
                 onChange={() => handleOnCheck(todo.id, todo.checked)}
               />
               <input
                 type="text"
-                disabled={todo.checked}
+                disabled={todo.checked || todo.removed}
                 value={todo.value}
                 onChange={(e) => handleOnEdit(todo.id, e.target.value)}
               />
