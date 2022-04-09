@@ -46,6 +46,19 @@ export const App = () => {
     setTodos(newTodos);
   };
 
+  const handleOnCheck = (id: number, checked: boolean) => {
+    const deepCopy = todos.map((todo) => ({ ...todo }));
+
+    const newTodos = deepCopy.map((todo) => {
+      if (todo.id === id) {
+        todo.checked = !checked;
+      }
+      return todo;
+    });
+
+    setTodos(newTodos);
+  };
+
   return (
     <div>
       <form
@@ -64,10 +77,11 @@ export const App = () => {
               <input
                 type="checkbox"
                 checked={todo.checked}
-                onChange={(e) => e.preventDefault()}
+                onChange={() => handleOnCheck(todo.id, todo.checked)}
               />
               <input
                 type="text"
+                disabled={todo.checked}
                 value={todo.value}
                 onChange={(e) => handleOnEdit(todo.id, e.target.value)}
               />
