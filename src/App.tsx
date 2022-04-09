@@ -87,6 +87,7 @@ export const App = () => {
                 value={todo.value}
                 onChange={(e) => handleOnEdit(todo.id, e.target.value)}
               />
+              <button onClick={() => console.log('removed!')}>削除</button>
             </li>
           );
         })}
