@@ -10,6 +10,8 @@ type Todo = {
   removed: boolean;
 };
 
+type Filter = 'all' | 'checked' | 'unchecked' | 'remoced';
+
 export const App = () => {
   const [text, setText] = useState('');
   // useState<>とすると型が異なるステートが代入できない
