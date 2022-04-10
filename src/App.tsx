@@ -103,12 +103,7 @@ export const App = () => {
         <option value="unchecked">現在のタスク</option>
         <option value="removed">ごみ箱</option>
       </select>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleOnSubmit();
-        }}
-      >
+      <form onSubmit={(e) => handleOnSubmit(e)}>
         <input type="text" value={text} onChange={(e) => handleOnChange(e)} />
         <input type="submit" value="追加" onSubmit={handleOnSubmit} />
       </form>
