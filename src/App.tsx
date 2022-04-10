@@ -16,6 +16,7 @@ export const App = () => {
   const [text, setText] = useState('');
   // useState<>とすると型が異なるステートが代入できない
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [filter, setFilter] = useState<Filter>('all');
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
