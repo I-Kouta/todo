@@ -122,13 +122,11 @@ export const App = () => {
             <input
               type="text"
               value={text}
-              disabled={filter === 'checked' || filter === 'removed'}
               onChange={(e) => handleOnChange(e)}
             />
             <input
               type="submit"
               value="追加"
-              disabled={filter === 'checked' || filter === 'removed'}
               onSubmit={handleOnSubmit}
             />
           </form>
