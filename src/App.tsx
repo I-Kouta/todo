@@ -107,25 +107,33 @@ export const App = () => {
         <option value="unchecked">現在のタスク</option>
         <option value="removed">ごみ箱</option>
       </select>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleOnSubmit();
-        }}
-      >
-        <input
-          type="text"
-          value={text}
-          disabled={filter === 'checked' || filter === 'removed'}
-          onChange={(e) => handleOnChange(e)}
-        />
-        <input
-          type="submit"
-          value="追加"
-          disabled={filter === 'checked' || filter === 'removed'}
-          onSubmit={handleOnSubmit}
-        />
-      </form>
+      {filter === 'removed' ? (
+        <button onClick={() => console.log('remove all')}>
+          ごみ箱を空にする
+        </button>
+      ) : (
+        filter !== 'checked' && (
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleOnSubmit();
+            }}
+          >
+            <input
+              type="text"
+              value={text}
+              disabled={filter === 'checked' || filter === 'removed'}
+              onChange={(e) => handleOnChange(e)}
+            />
+            <input
+              type="submit"
+              value="追加"
+              disabled={filter === 'checked' || filter === 'removed'}
+              onSubmit={handleOnSubmit}
+            />
+          </form>
+        )
+      )}
       <ul>
         {filteredTodos.map((todo) => {
           return (
