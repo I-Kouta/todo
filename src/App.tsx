@@ -77,6 +77,11 @@ export const App = () => {
     setTodos(newTodos);
   };
 
+  const handleOnEmpty = () => {
+    const newTodos = todos.filter((todo) => !todo.removed);
+    setTodos(newTodos);
+  };
+
   const filteredTodos = todos.filter((todo) => {
     switch (filter) {
       case 'all':
@@ -108,7 +113,10 @@ export const App = () => {
         <option value="removed">ごみ箱</option>
       </select>
       {filter === 'removed' ? (
-        <button onClick={() => console.log('remove all')}>
+        <button
+          onClick={handleOnEmpty}
+          disabled={todos.filter((todo) => todo.removed).length === 0}
+        >
           ごみ箱を空にする
         </button>
       ) : (
